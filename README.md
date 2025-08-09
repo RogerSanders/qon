@@ -22,7 +22,7 @@ This format is NOT indended to replace video container formats like [MP4](https:
 It has two key use-cases in mind:
 - A simple, lightweight, viable alternative to animated image files like [GIF](https://en.wikipedia.org/wiki/GIF)
   and [APNG](https://en.wikipedia.org/wiki/APNG).
-- An indexable frame store in memory or on disk, suitable for games or embedded systems.
+- An indexable frame store in memory or on disk, suitable for applications, games, or embedded systems.
 
 
 ## How?
@@ -30,9 +30,10 @@ It has two key use-cases in mind:
 Like QOI, this format is designed to be simple, lightweight, and easy to implement. It does this using a trimmed
 and improved QOI variant to store frames, with a simple frame index at the start of the file.
 
-To achieve good compression for animations, inter-frame compression is supported by optionally tying the QOI
-concept of the current value back to the contents of the previous frame. This can be changed on a per-frame basis,
-allowing for key frames, while giving good compression results with very little effort.
+To achieve good compression for animations, inter-frame compression is supported by optionally making the QOI
+concept of the current value relative to the contents of the previous frame. This gives good inter-frame
+compression results with very little effort, and almost no overhead on either compression or decompression.
+Inter-frame compression can be enabled or disabled on a per-frame basis, allowing for key frames.
 
 The leading frame index gives direct offset locations to the start of each frame, and also records the inter-frame
 compression settings. This gives several key benefits:
@@ -58,6 +59,8 @@ following changes:
   reducing the compression gap to PNG by 25%, with virtually no effect on encoding and decoding times.
 - Reference image. Encoding and decoding can be tied back to a reference image, which is used for inter-frame
   compression by QON.
+- Little endian. The original QOI spec used big endian notation in header fields. This has been changed to use
+  little endian notation, making it easier to optimize on modern platforms.
 
 
 ## Future
