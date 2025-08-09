@@ -53,10 +53,10 @@ following changes:
 - QOI footer removed. The reference QOI encoder added a trailing 8 bytes after each file, which wasn't part of
   the QOI specification. This is removed.
 - Compression improvements. The QOI format contained [key weaknesses](https://github.com/phoboslab/qoi/issues/191)
-  with most compressible and least compressible sections of data. These issues are addressed here, giving a
+  with both long repeated runs and successive uncompressible pixels. These issues are addressed here, giving a
   4% size reduction over QOI on the [benchmark suite](https://qoiformat.org/benchmark) (from 28.2% to 27.2%),
   reducing the compression gap to PNG by 25%, with virtually no effect on encoding and decoding times.
-- Reference image. Encoding a decoding can be tied back to a reference image, which is used for inter-frame
+- Reference image. Encoding and decoding can be tied back to a reference image, which is used for inter-frame
   compression by QON.
 
 
