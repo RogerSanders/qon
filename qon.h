@@ -3,6 +3,7 @@
 Copyright (c) 2025, Roger Sanders
 
 SPDX-License-Identifier: MIT
+
 */
 
 #ifndef QON_H

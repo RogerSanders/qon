@@ -67,7 +67,7 @@ int main(int argc, char **argv) {
 			commandLineError = true;
 		}
 	}
-	else if ((nextArgToCheck < (argc - 3)) && (stricmp(argv[nextArgToCheck], "pack") == 0)) {
+	else if ((nextArgToCheck < (argc - 2)) && (stricmp(argv[nextArgToCheck], "pack") == 0)) {
 		isUnpack = false;
 		while (++nextArgToCheck < (argc - 2)) {
 			if ((argv[nextArgToCheck][0] != '-') && (argv[nextArgToCheck][0] != '/')) {
