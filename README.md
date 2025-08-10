@@ -10,13 +10,13 @@ the official site:
 
 [qoiformat.org](https://qoiformat.org)
 
-[github.com/phoboslab/qop](https://github.com/phoboslab/qop)
+[github.com/phoboslab/qoi](https://github.com/phoboslab/qoi)
 
 QOI is a fantastic lossless, light-weight image compression format, and a viable drop-in replacement for PNG,
 with similar compression ratios, but much faster encoding and decoding, all in a few hundred lines of code.
 
 This format, QON, the "Quite OK aNimation Format” (because [QOA was taken](https://qoaformat.org/)) applies the
-work done by QOI to containers of images, with support for animation.
+work done by QOI to containers of images, with support for animation and full alpha transparency.
 
 This format is NOT indended to replace video container formats like [MP4](https://en.wikipedia.org/wiki/MP4_file_format).
 It has two key use-cases in mind:
