@@ -1,13 +1,9 @@
 /*
 
 Copyright (c) 2025, Roger Sanders
-Revised QOI format, achieving higher compression with equivalent performance.
 
 SPDX-License-Identifier: MIT
-
-
-/* -----------------------------------------------------------------------------
-Header - Public functions */
+*/
 
 #ifndef QON_H
 #define QON_H
@@ -20,9 +16,9 @@ extern "C" {
 #define QON_SRGB   0
 #define QON_LINEAR 1
 
-#define QON_FLAGS_USES_INTERFRAME_COMPRESSION 1
-#define QON_FLAGS_LOOP_ANIMATION 2
-#define QON_FRAME_FLAGS_INTERFRAME_COMPRESSION 1
+#define QON_FLAGS_USES_INTERFRAME_COMPRESSION  0x0001
+#define QON_FLAGS_LOOP_ANIMATION               0x0002
+#define QON_FRAME_FLAGS_INTERFRAME_COMPRESSION 0x8000
 
 #define QON_BARE_HEADER_SIZE 24
 #define QON_INDEX_SIZE_PER_ENTRY 8

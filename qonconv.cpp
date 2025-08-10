@@ -143,13 +143,16 @@ int main(int argc, char **argv) {
 
 		// Read the frame index from the input file
 		std::vector<unsigned char> frameIndexBuffer;
-		frameIndexBuffer.resize(QON_INDEX_SIZE_PER_ENTRY * qonHeader.frame_count);
+		frameIndexBuffer.resize(qonHeader.frame_count * QON_INDEX_SIZE_PER_ENTRY);
 		infile.read((char*)frameIndexBuffer.data(), frameIndexBuffer.size());
 
 		// Decode each frame in the QON file to a separate output file
 		size_t frameDataFileOffset = encodedHeaderBuffer.size() + frameIndexBuffer.size();
 		void* lastFramePixels = nullptr;
 		for (size_t frameIndex = 0; frameIndex < qonHeader.frame_count; ++frameIndex) {
+			// Write an output message
+			std::cout << "Unpacking frame " << frameIndex << std::endl;
+
 			// Retrieve the index entry for the next frame
 			size_t frameOffsetAfterIndex;
 			unsigned short frameFlags;
@@ -259,6 +262,9 @@ int main(int argc, char **argv) {
 		qoi2_desc qoi2Header;
 		size_t maxCompressedFrameSize = 0;
 		for (const auto& filePath : infilePaths) {
+			// Write an output message
+			std::cout << "Packing " << filePath << std::endl;
+
 			// Decode the input file to a pixel array
 			void* pixels = nullptr;
 			int w, h, channels;
